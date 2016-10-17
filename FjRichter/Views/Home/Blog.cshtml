@@ -1,0 +1,27 @@
+﻿@model FjRichter.ViewModels.BlogViewModel
+@{
+    ViewBag.Title = "Blog";
+}
+
+<h2>Blog</h2>
+
+<div class="row">
+    <p>@Model.Content.Head</p>
+    <P>@Model.Content.Text</P>
+    @foreach (var s in Model.Subjects)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="@Url.Action("Index", "Subject", new {Id = s.Id})"><h3 class="panel-title">@s.Title</h3></a>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach (var p in s.Posts)
+                    {
+                        <li class="list-group-item">@p.Title - @p.Created</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@model FJRichter.Models.Subject
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.Title</h2>
+
+<div class="row">
+    <ul class="list-group">
+        @foreach (var p in Model.Posts)
+        {
+            <li class="list-group-item">@p.Title - @p.Created</li>
+        }
+    </ul>
+</div>
